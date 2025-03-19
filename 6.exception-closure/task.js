@@ -10,23 +10,25 @@ function validateCount(value) {
     try {
         return parseCount(value); 
     } catch (error) {
-        return error.message; 
+        return error; 
     }
 }
  
  
 class Triangle {
-    constructor(a, b, c) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
-
-        
-        if (!(this.a + this.b > this.c && this.a + this.c > this.b && this.b + this.c > this.a)) {
-            throw new Error("Треугольник с такими сторонами не существует");
+   
+           constructor(a, b, c) {
+            
+            if (!(a + b > c && a + c > b && b + c > a)) {
+                throw new Error("Треугольник с такими сторонами не существует");
+            }
+    
+            this.a = a;
+            this.b = b;
+            this.c = c;
         }
-    }
-
+   
+    
     get perimeter() {
         return this.a + this.b + this.c; 
     }
